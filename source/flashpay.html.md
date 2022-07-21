@@ -13,6 +13,7 @@ toc_footers:
 
 includes:
 - flashpay_appendix
+- flashpay_notice
 
 search: true
 
