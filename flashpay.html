@@ -316,10 +316,21 @@
             <a href="#11affa2be2" class="toc-h1 toc-link" data-title="文档说明">文档说明</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#c1ae0a8486" class="toc-h1 toc-link" data-title="接入准备">接入准备</a>
           </li>
           <li>
             <a href="#d972c0c140" class="toc-h1 toc-link" data-title="接口规范">接口规范</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-header" class="toc-h2 toc-link" data-title="HTTP HEADER">HTTP HEADER</a>
+                  </li>
+                  <li>
+                    <a href="#f45a4fe41f" class="toc-h2 toc-link" data-title="公共参数">公共参数</a>
+                  </li>
+                  <li>
+                    <a href="#7b81b8ce22" class="toc-h2 toc-link" data-title="签名算法">签名算法</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#800f2de755" class="toc-h1 toc-link" data-title="相关接口">相关接口</a>
@@ -328,9 +339,6 @@
                     <a href="#3bd7f13059" class="toc-h2 toc-link" data-title="创建二维码订单">创建二维码订单</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#c1ae0a8486" class="toc-h1 toc-link" data-title="接入准备">接入准备</a>
           </li>
           <li>
             <a href="#f8519014aa" class="toc-h1 toc-link" data-title="附录">附录</a>
@@ -356,12 +364,140 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='11affa2be2'>文档说明</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>在过去的几年中，无现金支付已成为泰国金融基础设施的重要组成部分，QR支付是其主要媒介之一。 FlashPay的开放API平台通过为合作伙伴和初创企业提供在其上进行开发的付款界面，使公众能够利用无现金支付趋势。</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>本文档用来介绍QR 30支付产品。Thai QR Code Tag 30（QR 30）：支持商户出示QR码模式（C扫描B），在此模式下，用户扫描商户的QR码并使用活期账户或储蓄账户作为资金来源进行付款；大多数主要的泰国银行都支持这种QR支付方式。</p>
+<h1 id='c1ae0a8486'>接入准备</h1>
+<p>申请AppKey、RSA2签名的公钥私钥(FlashPay的密钥对，商户的密钥对)
+- 泰国：
+  - 生产环境域名：https://pay-openapi.flashfin.com
+  - 测试环境域名：https://test-pay-openapi.flashfin.com</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1><h1 id='d972c0c140'>接口规范</h1><h1 id='800f2de755'>相关接口</h1><h2 id='3bd7f13059'>创建二维码订单</h2>
+<ul>
+<li>马来
+
+<ul>
+<li>生产环境域名：https://pay-openapi.flashpayment.my</li>
+<li>测试环境域名：https://test-pay-openapi.flashpayment.my</li>
+</ul></li>
+</ul>
+<h1 id='d972c0c140'>接口规范</h1>
+<aside class="success">
+API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/json ，UTF-8 编码
+</aside>
+<h2 id='http-header'>HTTP HEADER</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>The sample value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Y</td>
+<td>string(32)</td>
+<td>application/json</td>
+<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>N</td>
+<td>string(2)</td>
+<td>th</td>
+<td>语言，支持th、en、zh-CN，默认英文：en</td>
+</tr>
+</tbody></table>
+<h2 id='f45a4fe41f'>公共参数</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>The sample value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Y</td>
+<td>string(32)</td>
+<td>application/json</td>
+<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>N</td>
+<td>string(2)</td>
+<td>th</td>
+<td>语言，支持th、en、zh-CN，默认英文：en</td>
+</tr>
+</tbody></table>
+<h3 id='de992c5ef7'>公共请求参数</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>The sample value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Y</td>
+<td>string(32)</td>
+<td>application/json</td>
+<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>N</td>
+<td>string(2)</td>
+<td>th</td>
+<td>语言，支持th、en、zh-CN，默认英文：en</td>
+</tr>
+</tbody></table>
+<h3 id='7c182124b8'>公共响应参数</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>The sample value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Y</td>
+<td>string(32)</td>
+<td>application/json</td>
+<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>N</td>
+<td>string(2)</td>
+<td>th</td>
+<td>语言，支持th、en、zh-CN，默认英文：en</td>
+</tr>
+</tbody></table>
+<h2 id='7b81b8ce22'>签名算法</h2>
+<aside class="success">
+本文涉及到的接口，均需要对请求内容进行签名，并对FlashPay平台返回的内容进行验签！
+</aside>
+<h3 id='496d8bf212'>访问方式：</h3><h4 id='5b1b0164fc'>商户访问平台</h4>
+<p>【商户请求】：商户应当用【商户私钥】对请求内容“签名“，平台收到请求后用【商户公钥】&quot;验签&quot;</p>
+
+<p>【平台响应】：平台应当用【平台私钥】对响应内容“签名“，商户收到响应后用【平台公钥】&quot;验签&quot;</p>
+<h4 id='db68fb41c9'>平台访问商户</h4>
+<p>【平台请求】：平台应当用【平台私钥】对请求内容“签名“，商户收到请求后用【平台公钥】&quot;验签&quot;</p>
+
+<p>【商户响应】：商户应当用【商户私钥】对响应内容“签名“，平台收到响应后用【商户公钥】&quot;验签&quot;</p>
+<h1 id='800f2de755'>相关接口</h1><h2 id='3bd7f13059'>创建二维码订单</h2>
 <blockquote>
 <p>The request parameter example like this:</p>
 </blockquote>
@@ -413,18 +549,6 @@
 <td>商户订单时间，时间字符串，格式：yyyy-MM-dd HH:mm:ss</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/json ，UTF-8 编码
-</aside>
-<h1 id='c1ae0a8486'>接入准备</h1>
-<p>申请AppKey、RSA2签名的公钥私钥(FlashPay的密钥对，商户的密钥对)
-- 泰国：
-  - 生产环境域名：https://pay-openapi.flashfin.com
-  - 测试环境域名：https://test-pay-openapi.flashfin.com
-- 马来
-  - 生产环境域名：https://pay-openapi.flashpayment.my
-  - 测试环境域名：https://test-pay-openapi.flashpayment.my</p>
 <h1 id='f8519014aa'>附录</h1><h2 id='229ed96559'>交易错误码</h2>
 <table><thead>
 <tr>
