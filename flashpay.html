@@ -339,12 +339,15 @@
             <a href="#f8519014aa" class="toc-h1 toc-link" data-title="附录">附录</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#5699b4eac7" class="toc-h2 toc-link" data-title="公共错误码">公共错误码</a>
+                    <a href="#229ed96559" class="toc-h2 toc-link" data-title="交易错误码">交易错误码</a>
                   </li>
                   <li>
-                    <a href="#27fce27256" class="toc-h2 toc-link" data-title="错误码解释">错误码解释</a>
+                    <a href="#5699b4eac7" class="toc-h2 toc-link" data-title="公共错误码">公共错误码</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#26b238cb1d" class="toc-h1 toc-link" data-title="注意事项">注意事项</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -534,7 +537,176 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='f8519014aa'>附录</h1><h2 id='5699b4eac7'>公共错误码</h2>
+<h1 id='f8519014aa'>附录</h1><h2 id='229ed96559'>交易错误码</h2>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101001</td>
+<td>买家余额不足</td>
+<td></td>
+</tr>
+<tr>
+<td>101002</td>
+<td>银行账户余额不足</td>
+<td></td>
+</tr>
+<tr>
+<td>101003</td>
+<td>买家状态非法</td>
+<td></td>
+</tr>
+<tr>
+<td>101004</td>
+<td>卖家状态非法</td>
+<td></td>
+</tr>
+<tr>
+<td>101005</td>
+<td>账户号不存在</td>
+<td></td>
+</tr>
+<tr>
+<td>101006</td>
+<td>产品未开通</td>
+<td></td>
+</tr>
+<tr>
+<td>101007</td>
+<td>未开通支付工具</td>
+<td></td>
+</tr>
+<tr>
+<td>101008</td>
+<td>未配置算费规则</td>
+<td></td>
+</tr>
+<tr>
+<td>101009</td>
+<td>交易已支付</td>
+<td></td>
+</tr>
+<tr>
+<td>101010</td>
+<td>交易已关闭</td>
+<td></td>
+</tr>
+<tr>
+<td>101011</td>
+<td>交易状态异常</td>
+<td></td>
+</tr>
+<tr>
+<td>101012</td>
+<td>交易存在风险</td>
+<td></td>
+</tr>
+<tr>
+<td>101013</td>
+<td>交易失败</td>
+<td></td>
+</tr>
+<tr>
+<td>101014</td>
+<td>交易不存在</td>
+<td></td>
+</tr>
+<tr>
+<td>101015</td>
+<td>交易信息被篡改</td>
+<td></td>
+</tr>
+<tr>
+<td>101016</td>
+<td>单笔交易金额超限</td>
+<td></td>
+</tr>
+<tr>
+<td>101017</td>
+<td>高风险交易，已被阻断</td>
+<td></td>
+</tr>
+<tr>
+<td>101018</td>
+<td>交易处理中</td>
+<td></td>
+</tr>
+<tr>
+<td>101019</td>
+<td>日累计金额超限</td>
+<td></td>
+</tr>
+<tr>
+<td>101020</td>
+<td>月累计金额超限</td>
+<td></td>
+</tr>
+<tr>
+<td>101021</td>
+<td>订单金额低于单笔最小金额</td>
+<td></td>
+</tr>
+<tr>
+<td>101022</td>
+<td>币种不支持</td>
+<td></td>
+</tr>
+<tr>
+<td>101023</td>
+<td>商户状态异常</td>
+<td></td>
+</tr>
+<tr>
+<td>101024</td>
+<td>用户状态异常</td>
+<td></td>
+</tr>
+<tr>
+<td>101025</td>
+<td>付款账号状态异常</td>
+<td></td>
+</tr>
+<tr>
+<td>101026</td>
+<td>收款账号状态异常</td>
+<td></td>
+</tr>
+<tr>
+<td>101027</td>
+<td>账户余额不足</td>
+<td></td>
+</tr>
+<tr>
+<td>101028</td>
+<td>没有支付成功的记录</td>
+<td></td>
+</tr>
+<tr>
+<td>101029</td>
+<td>未匹配到系统订单</td>
+<td></td>
+</tr>
+<tr>
+<td>101030</td>
+<td>不足以支付手续费</td>
+<td></td>
+</tr>
+<tr>
+<td>101031</td>
+<td>支付银行不支持当前分期期数付款</td>
+<td></td>
+</tr>
+<tr>
+<td>101032</td>
+<td>商户未开通当前支付银行</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='5699b4eac7'>公共错误码</h2>
 <table><thead>
 <tr>
 <th>Error Code</th>
@@ -573,13 +745,21 @@ Remember — a happy kitten is an authenticated kitten!
 <td>请求未知错误(状态未知)</td>
 </tr>
 </tbody></table>
-<h2 id='27fce27256'>错误码解释</h2>
-<p>接口确认成功：http状态码==200并且code==0
-接口确认失败：http状态码==200并且code &gt; 0 and code &lt; 999000
-接口操作结果未知：不是确认成功、也不是确认失败，则为状态未知(else分支)，此时业务状态无法确定，需要回查或者其他机制确认，绝对不能认为是确认失败！！！</p>
+<h3 id='27fce27256'>错误码解释</h3>
+<p>接口确认成功：http状态码==200并且code==0</p>
+
+<p>接口确认失败：http状态码==200并且code &gt; 0 and code &lt; 999000</p>
+
+<p>接口操作结果未知：不是确认成功、也不是确认失败，则为状态未知(else分支)，此时业务状态无法确定，需要回查或者其他机制确认，绝对不能认为是确认失败！！！</p>
 
 <aside class="notice">
   上述判断仅用来判断接口的成功失败，具体交易状态，应该参考具体接口返回的具体错误码进行判断！
+</aside>
+<h1 id='26b238cb1d'>注意事项</h1>
+<p>对于传入不同的outTradeNo，商户需保证同一笔商户侧订单(例如：同一笔电商订单)不能重复支付两次！！！</p>
+
+<aside class="notice">
+    由于支付调用方可能有多个资金渠道，所以当支付正在处理中的时候(例如：超时等原因未能返回具体结果)，如果采用其他资金渠道进行付款，可能会造成用户付多笔，一定要注意！！！需定时主动查询交易结果，以同步双方状态。
 </aside>
 
       </div>
