@@ -9,7 +9,8 @@ toc_footers:
 - <a href='https://flashpay.co.th/'>Documentation Powered by FlashPay</a>
 
 includes:
-- flashpay_access
+- flashpay_reference
+- flashpay_api
 - flashpay_appendix
 - flashpay_notice
 
@@ -24,58 +25,18 @@ meta:
 
 # 文档说明
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+    在过去的几年中，无现金支付已成为泰国金融基础设施的重要组成部分，QR支付是其主要媒介之一。 FlashPay的开放API平台通过为合作伙伴和初创企业提供在其上进行开发的付款界面，使公众能够利用无现金支付趋势。
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+    本文档用来介绍QR 30支付产品。Thai QR Code Tag 30（QR 30）：支持商户出示QR码模式（C扫描B），在此模式下，用户扫描商户的QR码并使用活期账户或储蓄账户作为资金来源进行付款；大多数主要的泰国银行都支持这种QR支付方式。
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# 接入准备
 
-# Authentication
-
-# 接口规范
-
-# 相关接口
-
-## 创建二维码订单
-
-> The request parameter example like this:
-
-```json
-{
-  "appKey": "8045636385012971212808",
-  "charset": "UTF-8",
-  "signType": "RSA2",
-  "sign": "",
-  "time": "2022-01-12 13:14:15",
-  "version": "1.0",
-  "data": {
-    "outTradeNo": "PAT-00001",
-    "outTradeTime": "2022-01-12 13:14:15",
-    "paymentAmount": 200,
-    "cur": "THB",
-    "subject": "这是个测试商户订单",
-    "body": "แฟลชโฮมสแกนเติมเงิน",
-    "expireTime": "",
-    "notifyUrl": "https://test.com",
-    "outUserId": "999999"
-  }
-}
-```
-
-对此接口的一个描述。
-
-### HTTP Request
-
-`GET /upay/create-qrcode-payment`
-
-### Request Parameters
-
-Parameter | Required | Type | The sample value | Description
---------- | -------- | ---- | ---------------- | -----------
-outTradeNo | Y | string(32) | 2014072300007148 | 商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复
-outTradeTime | Y | string(19) | 2020-07-10 12:07:07 | 商户订单时间，时间字符串，格式：yyyy-MM-dd HH:mm:ss
-
-<aside class="success">
-API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/json ，UTF-8 编码
-</aside>
+申请AppKey、RSA2签名的公钥私钥(FlashPay的密钥对，商户的密钥对)
+- 泰国：
+  - 生产环境域名：https://pay-openapi.flashfin.com
+  - 测试环境域名：https://test-pay-openapi.flashfin.com
+  
+- 马来
+  - 生产环境域名：https://pay-openapi.flashpayment.my
+  - 测试环境域名：https://test-pay-openapi.flashpayment.my
 
