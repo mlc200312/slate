@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="flashpay" data-languages="[&quot;json&quot;]">
+  <body class="flashpay" data-languages="[&quot;示例&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -305,7 +305,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="示例">示例</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -321,9 +321,6 @@
           <li>
             <a href="#d972c0c140" class="toc-h1 toc-link" data-title="接口规范">接口规范</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-header" class="toc-h2 toc-link" data-title="HTTP HEADER">HTTP HEADER</a>
-                  </li>
                   <li>
                     <a href="#f45a4fe41f" class="toc-h2 toc-link" data-title="公共参数">公共参数</a>
                   </li>
@@ -356,17 +353,16 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://flashpay.co.th/'>Documentation Powered by FlashPay</a></li>
+            <li><a href='http://192.168.25.38:4567/flashpay.html'>English</a></li>
+            <li><a href='http://192.168.25.38:4567/flashpay.html'>泰语</a></li>
+            <li><a href='https://flashpay.co.th/' target="_blank">联系我们</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='11affa2be2'>文档说明</h1>
-<p>在过去的几年中，无现金支付已成为泰国金融基础设施的重要组成部分，QR支付是其主要媒介之一。 FlashPay的开放API平台通过为合作伙伴和初创企业提供在其上进行开发的付款界面，使公众能够利用无现金支付趋势。</p>
-
-<p>本文档用来介绍QR 30支付产品。Thai QR Code Tag 30（QR 30）：支持商户出示QR码模式（C扫描B），在此模式下，用户扫描商户的QR码并使用活期账户或储蓄账户作为资金来源进行付款；大多数主要的泰国银行都支持这种QR支付方式。</p>
+<p>补充整体文档说明</p>
 <h1 id='c1ae0a8486'>接入准备</h1>
 <p>申请AppKey、RSA2签名的公钥私钥(FlashPay的密钥对，商户的密钥对)</p>
 
@@ -388,35 +384,52 @@
 <aside class="success">
 API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/json ，UTF-8 编码
 </aside>
-<h2 id='http-header'>HTTP HEADER</h2>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Type</th>
-<th>The sample value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Content-Type</td>
-<td>Y</td>
-<td>string(32)</td>
-<td>application/json</td>
-<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
-</tr>
-<tr>
-<td>Accept-Language</td>
-<td>N</td>
-<td>string(2)</td>
-<td>th</td>
-<td>语言，支持th、en、zh-CN，默认英文：en</td>
-</tr>
-</tbody></table>
 <h2 id='f45a4fe41f'>公共参数</h2>
+<blockquote>
+<p>请求示例：</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"appKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8038241718026163404840"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"charset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-12 13:14:15"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"outTradeNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"outTradeTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-12 13:14:15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cur"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"这是个测试商户订单"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"แฟลชโฮมสแกนเติมเงิน"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notifyUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"outUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>响应示例：</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Succeeded"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"outTradeNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tradeNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"220725040365063952"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tradeTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-25 20:37:29"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cur"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"096072849481994"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"qrImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"qrRawData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002010102123057011509607284948199402182207253964830116520312103438218752520470115303764540125802TH5922TestMerchant16086435296007BANGKOK62340523202207250837298230000000703TPC63048CE0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"qrExpireTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-26 19:37:29"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-header'>HTTP HEADER</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Required</th>
 <th>Type</th>
 <th>The sample value</th>
@@ -441,7 +454,7 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
 <h3 id='de992c5ef7'>公共请求参数</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Required</th>
 <th>Type</th>
 <th>The sample value</th>
@@ -449,24 +462,59 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
 </tr>
 </thead><tbody>
 <tr>
-<td>Content-Type</td>
+<td>appKey</td>
 <td>Y</td>
 <td>string(32)</td>
-<td>application/json</td>
-<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+<td>1234567890ABCD1234567890</td>
+<td>FlashPay颁发的APP_KEY</td>
 </tr>
 <tr>
-<td>Accept-Language</td>
-<td>N</td>
-<td>string(2)</td>
-<td>th</td>
-<td>语言，支持th、en、zh-CN，默认英文：en</td>
+<td>charset</td>
+<td>Y</td>
+<td>string(10)</td>
+<td>UTF-8</td>
+<td>请求使用的编码格式，默认且只支持UTF-8</td>
+</tr>
+<tr>
+<td>signType</td>
+<td>Y</td>
+<td>string(16)</td>
+<td>RSA2</td>
+<td>签名类型，默认且只支持RSA2(SHA256withRSA)</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>Y</td>
+<td>string</td>
+<td>C380BEC2BFD727A4B6845133519F3AD6</td>
+<td>签名，不参与签名</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Y</td>
+<td>string(19)</td>
+<td>2020-07-10 12:07:07</td>
+<td>时间字符串，格式：yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Y</td>
+<td>string(10)</td>
+<td>1.0</td>
+<td>调用的接口版本，目前固定为：1.0</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Y</td>
+<td>object</td>
+<td></td>
+<td>数据体(具体参见每个接口的请求参数)</td>
 </tr>
 </tbody></table>
 <h3 id='7c182124b8'>公共响应参数</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Required</th>
 <th>Type</th>
 <th>The sample value</th>
@@ -474,18 +522,32 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
 </tr>
 </thead><tbody>
 <tr>
-<td>Content-Type</td>
+<td>code</td>
 <td>Y</td>
-<td>string(32)</td>
-<td>application/json</td>
-<td>商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复</td>
+<td>int(6)</td>
+<td>0</td>
+<td>网关码(0：成功，只表达请求成功，非业务成功)</td>
 </tr>
 <tr>
-<td>Accept-Language</td>
+<td>message</td>
+<td>Y</td>
+<td>string(64)</td>
+<td>成功</td>
+<td>网关返回码描述</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>Y</td>
+<td>string(64)</td>
+<td>C380BEC2BFD727A4B6845133519F3AD6</td>
+<td>签名，不参与签名</td>
+</tr>
+<tr>
+<td>data</td>
 <td>N</td>
-<td>string(2)</td>
-<td>th</td>
-<td>语言，支持th、en、zh-CN，默认英文：en</td>
+<td>object</td>
+<td></td>
+<td>数据体(具体参见每个接口的响应参数)</td>
 </tr>
 </tbody></table>
 <h2 id='7b81b8ce22'>签名算法</h2>
@@ -500,37 +562,73 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
 <p>【平台请求】：平台应当用【平台私钥】对请求内容“签名“，商户收到请求后用【平台公钥】&quot;验签&quot;</p>
 
 <p>【商户响应】：商户应当用【商户私钥】对响应内容“签名“，平台收到响应后用【商户公钥】&quot;验签&quot;</p>
+<h3 id='35ca3dd39e'>签名：</h3>
+<blockquote>
+<p>Java 示例，具体可参考以下 jackson 的实现:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight java tab-java"><code> <span class="c1">// 针对data字段的json序列化设置</span>
+<span class="c1">// 去掉空值  </span>
+<span class="n">objectMapper</span><span class="o">.</span><span class="na">setSerializationInclusion</span><span class="o">(</span><span class="nc">JsonInclude</span><span class="o">.</span><span class="na">Include</span><span class="o">.</span><span class="na">NON_EMPTY</span><span class="o">);</span>
+<span class="c1">// 设置字母升序         </span>
+  <span class="n">objectMapper</span><span class="o">.</span><span class="na">configure</span><span class="o">(</span><span class="nc">MapperFeature</span><span class="o">.</span><span class="na">SORT_PROPERTIES_ALPHABETICALLY</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>
+  <span class="n">objectMapper</span><span class="o">.</span><span class="na">configure</span><span class="o">(</span><span class="nc">SerializationFeature</span><span class="o">.</span><span class="na">ORDER_MAP_ENTRIES_BY_KEYS</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>   
+</code></pre></div>
+<blockquote>
+<p>签名原文示例：</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>appKey=8045636385012971212808&amp;charset=UTF-8&amp;data={"body":"แฟลชโฮมสแกนเติมเงิน","cur":"THB","goodsCategory":"生活用品","goodsDetails":[{"body":"生活用品描述","goodsCategory":"生活用品","goodsId":"G0001","goodsName":"Goods0001","price":100,"quantity":2},{"body":"生活用品描述","goodsCategory":"生活用品","goodsId":"G0002","goodsName":"Goods0002","price":200,"quantity":4}],"notifyUrl":"https://test.com","operatorNo":"Y0001","outTradeNo":"PAT-00001","outTradeTime":"2022-01-12 13:14:15","outUserId":"999999","paymentAmount":200,"subject":"这是个测试商户订单"}&amp;time=2022-01-12 13:14:15&amp;version=1.0
+</code></pre></div><h4 id='step1-1'>Step1.1： 生成签名原文</h4>
+<ul>
+<li>首先将【公共请求参数】或【公共响应参数】中的字段按字母升序排好</li>
+<li>剔除sign、signType以及空值字段（包括null和空字符串&#39;&#39;）</li>
+<li>对于data字段，如果为空（包括null和空字符串&#39;&#39;）则不参与签名；如果不为空，则对该字段以字母序升序排列后进行json序列化</li>
+<li>用&amp;拼接上述字段，生成待签名字符串</li>
+</ul>
+<h4 id='step1-2'>Step1.2：签名</h4>
+<ul>
+<li>用私钥对【签名原文】进行RSA2（SHA256WithRSA）签名。</li>
+<li>注意：【签名原文】String需要转化为UTF-8编码的byte[]，然后去签名，上述签名数据byte[]需要采用Base64编码转为String，并设置在sign字段上。</li>
+</ul>
+<h3 id='22f19e7e2c'>验签</h3><h4 id='step2-1'>Step2.1： 生成签名原文</h4>
+<p>按【Step1.1】方式一致的方式，生成签名原文</p>
+<h4 id='step2-2'>Step2.2： 验签</h4>
+<ul>
+<li>用对应公钥，与上述【Step2.1】生成的签名原文，对sign字段传入的签名进行RSA2（SHA256WithRSA）验签，验证结果为 true 则验证成功，否则验证未通过。</li>
+<li>注意：【签名原文】String需要转化为UTF-8编码的byte[]。</li>
+<li>注意：签名数据sign（String）需要采用Base64编码转为byte[]。</li>
+</ul>
 <h1 id='800f2de755'>相关接口</h1><h2 id='3bd7f13059'>创建二维码订单</h2>
 <blockquote>
 <p>The request parameter example like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"appKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8045636385012971212808"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"appKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8038241718026163404840"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"charset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTF-8"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"signType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA2"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-12 13:14:15"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"outTradeNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAT-00001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"outTradeNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-00001"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"outTradeTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-12 13:14:15"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"paymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cur"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"这是个测试商户订单"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"แฟลชโฮมสแกนเติมเงิน"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"expireTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"notifyUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"outUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>对此接口的一个描述。</p>
+<h3 id='3bffba42a3'>流程图</h3>
+<p><a href="https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg"><img src="https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg" title="二维码支付流程图" alt="二维码支付流程图" /></a></p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /upay/create-qrcode-payment</code></p>
 <h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Required</th>
 <th>Type</th>
 <th>The sample value</th>
@@ -780,7 +878,7 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="示例">示例</a>
           </div>
       </div>
     </div>
