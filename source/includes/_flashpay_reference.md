@@ -52,14 +52,14 @@ API 通信统一采用 HTTPS 的 POST 方式，POST 请求类型为 application/
 
 ### HTTP HEADER
 
-Field     | Required | Type | The sample value | Description
+Field     | Required | Type | Example value    | Description
 --------- | -------- | ---- | ---------------- | -----------
 Content-Type | Y | string(32) | application/json | 商户订单号，32个字符以内、只能包含字母、数字、下划线、横线；需保证在商户端不重复
 Accept-Language | N | string(2) | th | 语言，支持th、en、zh-CN，默认英文：en
 
 ### 公共请求参数
 
-Field     | Required | Type | The sample value | Description
+Field     | Required | Type | Example value    | Description
 --------- | -------- | ---- | ---------------- | -----------
 appKey | Y | string(32) | 1234567890ABCD1234567890 | FlashPay颁发的APP_KEY
 charset | Y | string(10) | UTF-8 | 请求使用的编码格式，默认且只支持UTF-8
@@ -71,7 +71,7 @@ data | Y | object |  | 数据体(具体参见每个接口的请求参数)
 
 ### 公共响应参数
 
-Field     | Required | Type | The sample value | Description
+Field     | Required | Type | Example value    | Description
 --------- | -------- | ---- | ---------------- | -----------
 code | Y | int(6) | 0 | 网关码(0：成功，只表达请求成功，非业务成功)
 message | Y | string(64) | 成功 | 网关返回码描述
